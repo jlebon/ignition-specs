@@ -16,10 +16,9 @@ Patch3: 0002-build_releases-Allow-setting-VERSION-and-fallback-to.patch
 
 %if 0%{?fedora}
 BuildRequires:  %{?go_compiler:compiler(go-compiler)}%{!?go_compiler:golang >= 1.6.2}
-%endif #fedora
-%if 0%{?centos}
+%else # centos/rhel
 BuildRequires:  golang
-%endif #centos
+%endif
 BuildRequires:  libblkid-devel
 # See https://github.com/openshift/os/issues/59
 #ExclusiveArch:  %{go_arches}
